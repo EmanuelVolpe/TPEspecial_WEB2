@@ -18,8 +18,10 @@ class EquipoController {
 
     function showDetalleEquipo($idEquipo){
 
+        $equipo = $this->model->getUnoSolo($idEquipo);
+
         $uneJugadoresEquipos = $this->model->joinTablas($idEquipo);
-        if ($uneJugadoresEquipos) { //NO FUNCIONA CUANDO EL ID DEL EQUIPO NO EXISTE!!!!
+        if ($equipo) {
             $equipo = $this->model->getUnoSolo($idEquipo);
             $this->view->showEquipo($equipo, $uneJugadoresEquipos);  
         } else {
@@ -41,7 +43,9 @@ class EquipoController {
      * Agrega un nuevo Equipo a la lista.
      */
     public function addEquipo() {
-
+        // barrera de administradores
+        $this->authHelper->checkLoggedIn();
+        
         $nombre = $_POST['nombre'];
         $pais = $_POST['pais'];
         $canTitulos = $_POST['cantidadTitulos'];

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 03:23:43
+/* Smarty version 3.1.33, created on 2019-10-16 19:51:33
   from '/opt/lampp/htdocs/TPEspecial/templates/equipoList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da6711f2a0943_81624592',
+  'unifunc' => 'content_5da758a590cab6_06681272',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59f69dca4712a48c638078a07e2986d0e34bd08a' => 
     array (
       0 => '/opt/lampp/htdocs/TPEspecial/templates/equipoList.tpl',
-      1 => 1570835564,
+      1 => 1571248271,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da6711f2a0943_81624592 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5da758a590cab6_06681272 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="container">
         <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
 
+    <?php if (isset($_smarty_tpl->tpl_vars['userName']->value)) {?>
         <form action="nuevoEquipo" method="POST">
             <div class="row">
                 <div class="col">
@@ -52,6 +53,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
             </div> 
             <button type="submit" class="btn btn-primary">Guardar Equipo</button>
         </form>
+        <?php }?>
 
         <div class="container">
             <h1></h1>

@@ -44,7 +44,9 @@ class JugadorController {
      * Agrega un nuevo jugador a la lista.
      */
     public function addJugador() {
-
+        // barrera de administradores
+        $this->authHelper->checkLoggedIn();
+        
         $nombre = $_POST['nombre'];
         $posicion = $_POST['posicion'];
         $idEquipo = $_POST['id_equipo'];

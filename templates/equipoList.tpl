@@ -2,6 +2,7 @@
     <div class="container">
         <h1>{$titulo}</h1>
 
+    {if isset($userName)}
         <form action="nuevoEquipo" method="POST">
             <div class="row">
                 <div class="col">
@@ -25,6 +26,7 @@
             </div> 
             <button type="submit" class="btn btn-primary">Guardar Equipo</button>
         </form>
+        {/if}
 
         <div class="container">
             <h1></h1>
