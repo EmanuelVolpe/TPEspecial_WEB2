@@ -1,0 +1,8 @@
+.tarea {
+    font-size: 1.25rem;
+}
+
+.finalizada {
+    color: green;
+    text-decoration: line-through;
+}
