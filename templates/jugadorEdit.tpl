@@ -27,6 +27,7 @@
                     <div class="form-group">
                         <label>Nombre del Equipo</label>
                         <select name="id_equipoEditado" class="form-control">
+                            <option value="{$equipo->id_equipo}" selected>{$equipo->nombre}</option> 
                             {foreach $equipos as $equipo}
                                 <option value="{$equipo->id_equipo}">{$equipo->nombre}</option> 
                             {/foreach}

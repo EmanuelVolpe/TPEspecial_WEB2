@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 03:08:47
+/* Smarty version 3.1.33, created on 2019-10-16 23:22:00
   from '/opt/lampp/htdocs/TPEspecial/templates/jugadorList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da66d9fd9dde8_09504532',
+  'unifunc' => 'content_5da789f826b347_91527239',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c18cffe1098da61d926c95b4f5b08ed1401e68bc' => 
     array (
       0 => '/opt/lampp/htdocs/TPEspecial/templates/jugadorList.tpl',
-      1 => 1570835866,
+      1 => 1571260915,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da66d9fd9dde8_09504532 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5da789f826b347_91527239 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -31,47 +31,49 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
         <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
 
-        <form action="nuevoJugador" method="POST">
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input name="nombre" type="text" class="form-control" placeholder="Nombre">
+        <?php if (isset($_smarty_tpl->tpl_vars['userName']->value)) {?>
+            <form action="nuevoJugador" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input name="nombre" type="text" class="form-control" placeholder="Nombre">
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Posicion</label>
-                        <select name="posicion" class="form-control">
-                            <option value="arquero">Arquero</option>
-                            <option value="defensor">Defensor</option>
-                            <option value="volante">Volante</option>
-                            <option value="delantero">Delantero</option>
-                        </select>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Posicion</label>
+                            <select name="posicion" class="form-control">
+                                <option value="arquero">Arquero</option>
+                                <option value="defensor">Defensor</option>
+                                <option value="volante">Volante</option>
+                                <option value="delantero">Delantero</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Nombre del equipo</label>
-                        <select name="id_equipo" class="form-control">
-                            <?php
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Nombre del equipo</label>
+                            <select name="id_equipo" class="form-control">
+                                <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['equipos']->value, 'equipo');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['equipo']->value) {
 ?>
-                                <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
 "><?php echo $_smarty_tpl->tpl_vars['equipo']->value->nombre;?>
 </option> 
-                            <?php
+                                <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                        </select>
+                            </select>
+                        </div>
                     </div>
-                </div>
-            </div> 
-            <button type="submit" class="btn btn-primary">Guardar Jugador</button>
-        </form>
+                </div> 
+                <button type="submit" class="btn btn-primary">Guardar Jugador</button>
+            </form>
+        <?php }?>
 
         <div class="container">
             <h1></h1>
@@ -94,13 +96,19 @@ foreach ($_from as $_smarty_tpl->tpl_vars['jugador']->value) {
 ?>
                 <tr>
                     <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-</td> <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombreJugador;?>
-</td> <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->posicion;?>
-</td> <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombreEquipo;?>
-</td> <td><a href='editarJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-'><button type="button" class="btn btn-success">Editar</button>     <a href='eliminarJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-'><button type="button" class="btn btn-danger">Borrar</button></a> <a href='verJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-'><button type="button" class="btn btn-info">Ver Detalle</button></a></td>
+</td> 
+                    <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombreJugador;?>
+</td> 
+                    <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->posicion;?>
+</td> 
+                    <td><?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombreEquipo;?>
+</td>
+                    <td><a href='verJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
+'><button type="button" class="btn btn-info">Ver Detalle</button></a>
+                    <?php if (isset($_smarty_tpl->tpl_vars['userName']->value)) {?><a href='editarJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
+'><button type="button" class="btn btn-success">Editar</button>     
+                    <a href='eliminarJugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
+'><button type="button" class="btn btn-danger">Borrar</button></a><?php }?></td>
                 </tr>
             <?php
 }

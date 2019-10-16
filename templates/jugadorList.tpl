@@ -4,38 +4,40 @@
     
         <h1>{$titulo}</h1>
 
-        <form action="nuevoJugador" method="POST">
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input name="nombre" type="text" class="form-control" placeholder="Nombre">
+        {if isset($userName)}
+            <form action="nuevoJugador" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input name="nombre" type="text" class="form-control" placeholder="Nombre">
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Posicion</label>
-                        <select name="posicion" class="form-control">
-                            <option value="arquero">Arquero</option>
-                            <option value="defensor">Defensor</option>
-                            <option value="volante">Volante</option>
-                            <option value="delantero">Delantero</option>
-                        </select>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Posicion</label>
+                            <select name="posicion" class="form-control">
+                                <option value="arquero">Arquero</option>
+                                <option value="defensor">Defensor</option>
+                                <option value="volante">Volante</option>
+                                <option value="delantero">Delantero</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Nombre del equipo</label>
-                        <select name="id_equipo" class="form-control">
-                            {foreach $equipos as $equipo}
-                                <option value="{$equipo->id_equipo}">{$equipo->nombre}</option> 
-                            {/foreach}
-                        </select>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Nombre del equipo</label>
+                            <select name="id_equipo" class="form-control">
+                                {foreach $equipos as $equipo}
+                                    <option value="{$equipo->id_equipo}">{$equipo->nombre}</option> 
+                                {/foreach}
+                            </select>
+                        </div>
                     </div>
-                </div>
-            </div> 
-            <button type="submit" class="btn btn-primary">Guardar Jugador</button>
-        </form>
+                </div> 
+                <button type="submit" class="btn btn-primary">Guardar Jugador</button>
+            </form>
+        {/if}
 
         <div class="container">
             <h1></h1>
@@ -53,7 +55,13 @@
             </thead>
             {foreach $jugadores as $jugador}
                 <tr>
-                    <td>{$jugador->id_jugador}</td> <td>{$jugador->nombreJugador}</td> <td>{$jugador->posicion}</td> <td>{$jugador->nombreEquipo}</td> <td><a href='editarJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-success">Editar</button>     <a href='eliminarJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-danger">Borrar</button></a> <a href='verJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-info">Ver Detalle</button></a></td>
+                    <td>{$jugador->id_jugador}</td> 
+                    <td>{$jugador->nombreJugador}</td> 
+                    <td>{$jugador->posicion}</td> 
+                    <td>{$jugador->nombreEquipo}</td>
+                    <td><a href='verJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-info">Ver Detalle</button></a>
+                    {if isset($userName)}<a href='editarJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-success">Editar</button>     
+                    <a href='eliminarJugador/{$jugador->id_jugador}'><button type="button" class="btn btn-danger">Borrar</button></a>{/if}</td>
                 </tr>
             {/foreach}
         </table>

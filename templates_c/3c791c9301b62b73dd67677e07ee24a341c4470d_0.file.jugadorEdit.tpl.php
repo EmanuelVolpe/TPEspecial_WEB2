@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 19:44:43
+/* Smarty version 3.1.33, created on 2019-10-16 20:35:18
   from '/opt/lampp/htdocs/TPEspecial/templates/jugadorEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da7570b9a3192_50923843',
+  'unifunc' => 'content_5da762e6604914_89971758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c791c9301b62b73dd67677e07ee24a341c4470d' => 
     array (
       0 => '/opt/lampp/htdocs/TPEspecial/templates/jugadorEdit.tpl',
-      1 => 1570832720,
+      1 => 1571250903,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da7570b9a3192_50923843 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5da762e6604914_89971758 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -55,6 +55,9 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                     <div class="form-group">
                         <label>Nombre del Equipo</label>
                         <select name="id_equipoEditado" class="form-control">
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
+" selected><?php echo $_smarty_tpl->tpl_vars['equipo']->value->nombre;?>
+</option> 
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['equipos']->value, 'equipo');
 if ($_from !== null) {

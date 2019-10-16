@@ -26,7 +26,7 @@
             </div> 
             <button type="submit" class="btn btn-primary">Guardar Equipo</button>
         </form>
-        {/if}
+    {/if}
 
         <div class="container">
             <h1></h1>
@@ -45,7 +45,13 @@
             </thead>
             {foreach $equipos as $equipo}
                 <tr>
-                    <td>{$equipo->id_equipo}</td> <td>{$equipo->nombre}</td> <td>{$equipo->pais}</td> <td>{$equipo->cantidad_titulos}</td> <td><a href='editarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-success">Editar</button></a>     <a href='eliminarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-danger">Borrar</button></a> <a href='verEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-info">Ver Detalle</button></a></td>  
+                    <td>{$equipo->id_equipo}</td> 
+                    <td>{$equipo->nombre}</td> 
+                    <td>{$equipo->pais}</td> 
+                    <td>{$equipo->cantidad_titulos}</td> 
+                    <td><a href='verEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-info">Ver Detalle</button></a>
+                        {if isset($userName)}<a href='editarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-success">Editar</button></a>     
+                        <a href='eliminarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-danger">Borrar</button></a>{/if}</td>  
                 </tr>
             {/foreach}
         </table>
