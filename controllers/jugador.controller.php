@@ -22,17 +22,17 @@ class JugadorController {
      * Muestra la lista de jugadores.
      */
     public function showJugadores() {
-        
         // obtengo todos los jugadores del model
-        $jugadores = $this->modelEquipo->uneTablas();
+        $jugadores = $this->modelEquipo->getJugadoresConDetalle();
         $equipos = $this->modelEquipo->getAllEquipos();
         // se los paso a la vista
         $this->view->showJugadoresVista($jugadores,$equipos);
     }
 
-    public function showDetalleJugador($idJugador) {   
-        
-        $jugador = $this->model->joinTablas($idJugador);
+    public function showDetalleJugador($params= null) {
+
+        $idJugador = $params[":ID"];
+        $jugador = $this->model->getDetalleJugador($idJugador);
         if ($jugador) {
             $this->view->showJugador($jugador);
         }
@@ -46,7 +46,6 @@ class JugadorController {
     public function addJugador() {
         // barrera de administradores
         $this->authHelper->checkLoggedIn();
-        
         $nombre = $_POST['nombre'];
         $posicion = $_POST['posicion'];
         $idEquipo = $_POST['id_equipo'];
@@ -61,19 +60,21 @@ class JugadorController {
     /**
      * Elimina un jugador de la lista.
      */
-    public function deleteJugador($idJugador) {
+    public function eliminaJugador($params= null) {
 
+        $idJugador = $params[":ID"];
         // barrera de administradores
         $this->authHelper->checkLoggedIn();
         $this->model->delete($idJugador);
         header("Location: " . BASE_URL . "verJugadores");
     }
 
-    public function editaJugador($idJugador) {
+    public function editaJugador($params= null) {
 
+        $idJugador = $params[":ID"];
         // barrera de administradores
         $this->authHelper->checkLoggedIn();
-        $jugador = $this->model->joinTablas($idJugador);
+        $jugador = $this->model->getDetalleJugador($idJugador);
         $equipos = $this->modelEquipo->getAllEquipos();
         $this->view->showEdicion($jugador, $equipos);
     }
@@ -85,7 +86,7 @@ class JugadorController {
         $id_equipo = $_POST["id_equipoEditado"];
         $id_jugador = $_POST["id_jugadorEditado"];
         var_dump($id_jugador);
-        
+
         if (!empty($nombre) && !empty($posicion)) {
             $this->model->edita($id_equipo, $nombre, $posicion, $id_jugador);
             var_dump($id_equipo, $nombre, $posicion, $id_jugador);

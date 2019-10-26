@@ -1,7 +1,7 @@
 {include 'templates/header.tpl'}
 
 <div class="container">
-        
+
         <h1>{$titulo|upper}</h1>
 
         <h1>Nombre del Equipo: {$equipo->nombre}</h1>
@@ -15,14 +15,14 @@
                             <th scope="col">Posicion</th>
                         </tr>
                     </thead>
-                    {foreach $uneJugadoresEquipos as $equipo}
+                    {foreach $jugadoresDelEquipo as $equipo}
                         <tr>
-                            <td>{$equipo->jugador}</td> <td>{$equipo->posicion}</td>                   
+                            <td>{$equipo->jugador}</td> <td>{$equipo->posicion}</td>
                         </tr>
                     {/foreach}
-                </table> 
-        
+                </table>
+
         <a href='verEquipos'><button type="button" class="btn btn-info">Volver</button></a>
 </div>
-    
+
 {include 'templates/footer.tpl'}

@@ -7,10 +7,10 @@ class EquipoView {
     private $smarty;
 
     public function __construct() {
-        
+
         $authHelper = new AuthHelper();
         $userName = $authHelper->getLoggedUserName();
-               
+
         $this->smarty = new Smarty();
         $this->smarty->assign('baseURL', BASE_URL);
         $this->smarty->assign('userName', $userName);
@@ -20,7 +20,7 @@ class EquipoView {
         $this->smarty->assign('titulo', 'Lista de Equipos');
         $this->smarty->assign('equipos', $equipos);
         $this->smarty->display('templates/equipoList.tpl');
-        
+
     }
 
     public function showEdicion($equipo) {
@@ -33,14 +33,14 @@ class EquipoView {
         echo "<h1>ERROR!</h1>";
         echo "<h2>{$msgError}</h2>";
     }
-    
+
     /**
      * Construye el html que permite visualizar el detalle de una EQUIPO determinado.
      */
-    public function showEquipo($equipo, $uneJugadoresEquipos) {
+    public function showEquipo($equipo, $jugadoresDelEquipo) {
         $this->smarty->assign('titulo','Detalle del Equipo');
         $this->smarty->assign('equipo', $equipo);
-        $this->smarty->assign('uneJugadoresEquipos', $uneJugadoresEquipos);
+        $this->smarty->assign('jugadoresDelEquipo', $jugadoresDelEquipo);
         $this->smarty->display('templates/equipoDetail.tpl');
     }
 }

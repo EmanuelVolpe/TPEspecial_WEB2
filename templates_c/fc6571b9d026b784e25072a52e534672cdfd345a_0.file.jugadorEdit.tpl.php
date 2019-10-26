@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-25 23:46:00
-  from '/opt/lampp/htdocs/TPEspecial/templates/jugadorEdit.tpl' */
+/* Smarty version 3.1.33, created on 2019-10-18 02:12:57
+  from '/opt/lampp/htdocs/Correccion/templates/jugadorEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5db36d18136872_26704820',
+  'unifunc' => 'content_5da9038934abd9_24025287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3c791c9301b62b73dd67677e07ee24a341c4470d' => 
+    'fc6571b9d026b784e25072a52e534672cdfd345a' => 
     array (
-      0 => '/opt/lampp/htdocs/TPEspecial/templates/jugadorEdit.tpl',
-      1 => 1572039955,
+      0 => '/opt/lampp/htdocs/Correccion/templates/jugadorEdit.tpl',
+      1 => 1571250903,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5db36d18136872_26704820 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5da9038934abd9_24025287 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     <div class="container">
-
+    
         <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
 
@@ -55,9 +55,9 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                     <div class="form-group">
                         <label>Nombre del Equipo</label>
                         <select name="id_equipoEditado" class="form-control">
-                            <!-- <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
-"><?php echo $_smarty_tpl->tpl_vars['equipo']->value->nombre;?>
-</option>  -->
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
+" selected><?php echo $_smarty_tpl->tpl_vars['equipo']->value->nombre;?>
+</option> 
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['equipos']->value, 'equipo');
 if ($_from !== null) {
@@ -65,7 +65,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['equipo']->value) {
 ?>
                                 <option value="<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
 "><?php echo $_smarty_tpl->tpl_vars['equipo']->value->nombre;?>
-</option>
+</option> 
                             <?php
 }
 }
@@ -79,10 +79,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ">
                     </div>
                 </div>
-            </div>
+            </div> 
             <button type="submit" class="btn btn-primary">Guardar Edicion</button>
         </form>
-
+        
     </div>
 <?php $_smarty_tpl->_subTemplateRender('file:templates/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

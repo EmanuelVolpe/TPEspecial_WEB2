@@ -16,19 +16,6 @@ class EquipoController {
         $this->authHelper = new AuthHelper();
     }
 
-    function showDetalleEquipo($idEquipo){
-
-        $equipo = $this->model->getUnoSolo($idEquipo);
-
-        $uneJugadoresEquipos = $this->model->joinTablas($idEquipo);
-        if ($equipo) {
-            $equipo = $this->model->getUnoSolo($idEquipo);
-            $this->view->showEquipo($equipo, $uneJugadoresEquipos);  
-        } else {
-            $this->view->showError("EL EQUIPO NO EXISTE");
-        }
-    }
-
     /**
      * Muestra la lista de Equipos.
      */
@@ -39,17 +26,42 @@ class EquipoController {
         $this->view->showEquiposVista($equipos);
     }
 
+    public function showDetalleEquipo($params= null){
+
+        $idEquipo = $params[":ID"];
+        $equipo = $this->model->getUnEquipoSolo($idEquipo);
+        $jugadoresDelEquipo = $this->model->getJugadoresDeUnEquipo($idEquipo);
+        if ($equipo) {
+            $equipo = $this->model->getUnEquipoSolo($idEquipo);
+            $this->view->showEquipo($equipo, $jugadoresDelEquipo);
+        } else {
+            $this->view->showError("EL EQUIPO NO EXISTE");
+        }
+    }
+
+    /**
+     * Elimina un equipo de la lista.
+     */
+    public function eliminaEquipo($params= null) {
+        
+        $idEquipo = $params[":ID"];
+        // barrera de administradores
+        $this->authHelper->checkLoggedIn();
+        $this->model->delete($idEquipo);
+        header("Location: " . BASE_URL . "verEquipos");
+    }
+
     /**
      * Agrega un nuevo Equipo a la lista.
      */
     public function addEquipo() {
         // barrera de administradores
         $this->authHelper->checkLoggedIn();
-        
+
         $nombre = $_POST['nombre'];
         $pais = $_POST['pais'];
         $canTitulos = $_POST['cantidadTitulos'];
-        
+
         if (!empty($nombre) && !empty($pais) && is_numeric($canTitulos)) {
             $this->model->save($nombre, $pais, $canTitulos);
             header("Location: " . BASE_URL . "verEquipos");
@@ -58,14 +70,15 @@ class EquipoController {
         }
     }
 
-    public function editaEquipo($idEquipo) {
+    public function editaEquipo($params= null) {
 
+        $idEquipo = $params[":ID"];
         // barrera de administradores
         $this->authHelper->checkLoggedIn();
-        $equipo = $this->model->getUnoSolo($idEquipo);
+        $equipo = $this->model->getUnEquipoSolo($idEquipo);
         //var_dump($equipo);
         $this->view->showEdicion($equipo);
-  
+
     }
 
     public function actualizaEquipo() {
@@ -82,18 +95,5 @@ class EquipoController {
         } else {
             $this->view->showError("Faltan datos obligatorios");
         }
-    
     }
-
-    /**
-     * Elimina un equipo de la lista.
-     */
-    public function deleteEquipo($idEquipo) {
-        // barrera de administradores
-        $this->authHelper->checkLoggedIn();
-        $this->model->delete($idEquipo);
-        header("Location: " . BASE_URL . "verEquipos");
-    }
-
 }
-  

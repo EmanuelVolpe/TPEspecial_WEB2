@@ -50,8 +50,10 @@
                     <td>{$equipo->pais}</td> 
                     <td>{$equipo->cantidad_titulos}</td> 
                     <td><a href='verEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-info">Ver Detalle</button></a>
-                        {if isset($userName)}<a href='editarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-success">Editar</button></a>     
-                        <a href='eliminarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-danger">Borrar</button></a>{/if}</td>  
+                        {if isset($userName)}
+                            <a href='editarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-success">Editar</button></a>     
+                            <a href='eliminarEquipo/{$equipo->id_equipo}'><button type="button" class="btn btn-danger">Borrar</button></a>
+                        {/if}</td>  
                 </tr>
             {/foreach}
         </table>
