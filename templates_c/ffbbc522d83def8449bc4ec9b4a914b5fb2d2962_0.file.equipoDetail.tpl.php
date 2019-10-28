@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 03:22:25
+/* Smarty version 3.1.33, created on 2019-10-28 14:11:38
   from '/opt/lampp/htdocs/TPEspecial/templates/equipoDetail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da670d15535f2_46093008',
+  'unifunc' => 'content_5db6e90a9b10d7_49014733',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ffbbc522d83def8449bc4ec9b4a914b5fb2d2962' => 
     array (
       0 => '/opt/lampp/htdocs/TPEspecial/templates/equipoDetail.tpl',
-      1 => 1570888290,
+      1 => 1571347577,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da670d15535f2_46093008 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5db6e90a9b10d7_49014733 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div class="container">
-        
+
         <h1><?php echo mb_strtoupper($_smarty_tpl->tpl_vars['titulo']->value, 'UTF-8');?>
 </h1>
 
@@ -46,24 +46,24 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                         </tr>
                     </thead>
                     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['uneJugadoresEquipos']->value, 'equipo');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['jugadoresDelEquipo']->value, 'equipo');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['equipo']->value) {
 ?>
                         <tr>
                             <td><?php echo $_smarty_tpl->tpl_vars['equipo']->value->jugador;?>
 </td> <td><?php echo $_smarty_tpl->tpl_vars['equipo']->value->posicion;?>
-</td>                   
+</td>
                         </tr>
                     <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </table> 
-        
+                </table>
+
         <a href='verEquipos'><button type="button" class="btn btn-info">Volver</button></a>
 </div>
-    
+
 <?php $_smarty_tpl->_subTemplateRender('file:templates/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }

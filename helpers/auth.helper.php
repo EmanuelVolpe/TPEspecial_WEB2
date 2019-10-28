@@ -17,6 +17,7 @@ class AuthHelper {
         session_destroy();
     }
 
+    //ESTO SIRVE DE BARRERA PARA ADMINISTRADORES
     public function checkLoggedIn() {
         if (!isset($_SESSION['ID_USER'])) {
             header('Location: ' . LOGIN);
@@ -27,6 +28,7 @@ class AuthHelper {
     public function getLoggedUserName() {
         if (isset($_SESSION['USERNAME']))
             return $_SESSION['USERNAME'];
-        else return null; 
+        else 
+            return null; 
     }
 }

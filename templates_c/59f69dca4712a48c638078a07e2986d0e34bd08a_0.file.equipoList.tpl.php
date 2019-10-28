@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 23:22:06
+/* Smarty version 3.1.33, created on 2019-10-28 14:11:19
   from '/opt/lampp/htdocs/TPEspecial/templates/equipoList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da789fee6fcf3_09761358',
+  'unifunc' => 'content_5db6e8f777c8a2_71127801',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59f69dca4712a48c638078a07e2986d0e34bd08a' => 
     array (
       0 => '/opt/lampp/htdocs/TPEspecial/templates/equipoList.tpl',
-      1 => 1571260876,
+      1 => 1572100368,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da789fee6fcf3_09761358 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5db6e8f777c8a2_71127801 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="container">
@@ -86,10 +86,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['equipo']->value) {
 </td> 
                     <td><a href='verEquipo/<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
 '><button type="button" class="btn btn-info">Ver Detalle</button></a>
-                        <?php if (isset($_smarty_tpl->tpl_vars['userName']->value)) {?><a href='editarEquipo/<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
+                        <?php if (isset($_smarty_tpl->tpl_vars['userName']->value)) {?>
+                            <a href='editarEquipo/<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
 '><button type="button" class="btn btn-success">Editar</button></a>     
-                        <a href='eliminarEquipo/<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
-'><button type="button" class="btn btn-danger">Borrar</button></a><?php }?></td>  
+                            <a href='eliminarEquipo/<?php echo $_smarty_tpl->tpl_vars['equipo']->value->id_equipo;?>
+'><button type="button" class="btn btn-danger">Borrar</button></a>
+                        <?php }?></td>  
                 </tr>
             <?php
 }

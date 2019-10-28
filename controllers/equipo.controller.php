@@ -10,7 +10,6 @@ class EquipoController {
     private $authHelper;
 
     public function __construct() {
-
         $this->model = new EquipoModel();
         $this->view = new EquipoView();
         $this->authHelper = new AuthHelper();

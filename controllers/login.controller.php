@@ -23,11 +23,9 @@ class LoginController {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $user = $this->model->getByUserName($username);
-        //var_dump($_POST);
 
         //  encontró un user con el username que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($password, $user->password)) {
-            var_dump($user);
             $this->authHelper->login($user);
             header("Location: " . BASE_URL . "verEquipos");
         } else {

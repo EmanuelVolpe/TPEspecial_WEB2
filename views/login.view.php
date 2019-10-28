@@ -16,4 +16,4 @@
             $this->smarty->display('templates/login.tpl');
         }
 
-}
+    }
